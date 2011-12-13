@@ -1,27 +1,30 @@
-# Escper -- Convert an image to ESCPOS commands for thermal printers
-# Copyright (C) 2011-2012  Michael Franzl <michael@billgastro.com>
-# 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+= Escper (read: "Escaper") -- Convert an image to ESCPOS commands for thermal printers
 
-Usage:
+== Usage:
 
-Escper::Image.new('image.png').to_s 
+    Escper::Image.new('image.png').to_s
 
 For optimal visual results, image.png should previously be converted to an indexed, black and white 1-bit palette image. In Gimp, click on "Image -> Mode -> Indexed..." and select "Use black and white (1-bit) palette". For dithering, choose "Floyd-Steinberg (reduced color bleeding)".
 
 To print an image directly on a thermal line printer:
 
-File.open('/dev/usb/lp0','w') do |f| 
-  f.write Escper::Image.new('image.png').to_s 
-end
+    File.open('/dev/usb/lp0','w') do |f| 
+      f.write Escper::Image.new('image.png').to_s 
+    end
+
+== Licence
+
+Copyright (C) 2011-2012  Michael Franzl <michael@billgastro.com>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
