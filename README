@@ -1,16 +1,26 @@
-= Escper (read: "Escaper") -- Convert an image to ESCPOS commands for thermal printers
+= Escper (read: "escaper") -- Convert an image to ESCPOS commands for thermal receipt printers
 
 == Usage:
 
-    Escper::Image.new('image.png').to_s
+    gem install escper
 
-For optimal visual results, image.png should previously be converted to an indexed, black and white 1-bit palette image. In Gimp, click on "Image -> Mode -> Indexed..." and select "Use black and white (1-bit) palette". For dithering, choose "Floyd-Steinberg (reduced color bleeding)".
+Test it in a Ruby script:
 
-To print an image directly on a thermal line printer:
+    require 'escper'
+    puts Escper::Image.new('test.png', :file).to_s
 
-    File.open('/dev/usb/lp0','w') do |f| 
-      f.write Escper::Image.new('image.png').to_s 
-    end
+Or if you read the image from an image upload form in Rails, do this:
+
+    Escper::Image.new(data.read, :blob).to_s
+
+where "data" is a variable containing the image data of a multipart HTML form.
+
+
+For optimal visual results, image.png should previously be converted to an indexed, black and white 1-bit palette image. In Gimp, click on "Image -> Mode -> Indexed..." and select "Use black and white (1-bit) palette". For dithering, choose "Floyd-Steinberg (reduced color bleeding)". The image size depends on the resolution of the printer.
+
+To send an image directly to a thermal receipt printer:
+
+    File.open('/dev/usb/lp0','w') { |f| f.write Escper::Image.new('image.png').to_s }
 
 == Licence
 
