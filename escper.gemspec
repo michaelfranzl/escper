@@ -8,9 +8,9 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Michael Franzl"]
   s.email       = ["office@michaelfranzl.com"]
-  s.homepage    = "michaelfranzl.com"
-  s.summary     = %q{Converts bitmaps to ESC/POS printer commands}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://michaelfranzl.com"
+  s.summary     = %q{Converts bitmaps to the ESC/POS receipt printer command}
+  s.description = %q{}
 
   s.rubyforge_project = "escper"
 

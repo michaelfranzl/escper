@@ -1,8 +1,29 @@
+# Escper -- Convert an image to ESCPOS commands for thermal printers
+# Copyright (C) 2011-2012  Michael Franzl <michael@billgastro.com>
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 require 'RMagick'
+
 module Escper
   class Image
-    def initialize(img)
-      @image = convert(Magick::Image.read(img).first)
+    def initialize(data, type)
+      if type == :file
+        @image = convert(Magick::Image.read(data).first)
+      elsif type == :blob
+        @image = convert(Magick::Image.from_blob(data).first)
+      end
     end
 
     def convert(img=nil)
@@ -49,13 +70,10 @@ module Escper
 	        temp = 0
         end
       end
-      result = bits.collect { |b| b.chr }.join
-      escpos="\x1D\x76\x30\x00#{@x.chr}\x00#{(@y*8).chr}\x00#{ result }"
+      result = bits.collect{ |b| b.chr }.join
+      escpos = "\x1D\x76\x30\x00#{@x.chr}\x00#{(@y*8).chr}\x00#{ result }"
+      escpos.force_encoding('ISO-8859-15')
       return escpos
     end
   end
-end
-
-File.open('/dev/usb/lp0','w') do |f| 
-  f.write Escper::Image.new('/home/michael3/projects/salor-tec/cigarstore.png').to_s 
 end
