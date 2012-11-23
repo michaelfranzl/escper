@@ -44,7 +44,7 @@ module Escper
       return bytes_written, output_text
     end
     
-    def merge_texts(text, raw_text_insertations, codepage)
+    def self.merge_texts(text, raw_text_insertations, codepage = 0)
       asciifier = Escper::Asciifier.new(codepage)
       asciified_text = asciifier.process(text)
       raw_text_insertations.each do |key, value|
@@ -70,7 +70,7 @@ module Escper
         
         ActiveRecord::Base.logger.info "[PRINTING]  Testing #{value[:device].inspect }"
         if chartest
-          print(id, init + self.all_chars + cut)
+          print(id, init + Escper::Asciifier.all_chars + cut)
         else
           ascifiier = Escper::Asciifier.new(value[:codepage])
           print(id, init + ascifiier.process(testtext) + cut)

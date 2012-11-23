@@ -1,16 +1,14 @@
 module Escper
   class Asciifier
-    def initialize(codepage)
+    def initialize(codepage=0)
       @codepage = codepage
       @codepage_lookup_yaml = YAML::load(File.read(Escper.codepage_file))
     end
     
     def self.all_chars
       out = "\e@" # Initialize Printer
-      out.encode!('ascii-8bit')
+      out.encode!('ASCII-8BIT')
       20.upto(255) { |i| out += i.to_s(16) + i.chr + ' ' }
-      out += "\n\n\n\n\n\n" +
-      "\x1D\x56\x00" # paper cut
       return out
     end
     
