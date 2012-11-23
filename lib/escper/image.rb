@@ -1,10 +1,12 @@
 module Escper
-  class Image
+  class Img
     def initialize(data, type)
       if type == :file
         @image = convert(Magick::Image.read(data).first)
       elsif type == :blob
         @image = convert(Magick::Image.from_blob(data).first)
+      elsif type == :obj
+        @image = convert(data)
       end
     end
 
