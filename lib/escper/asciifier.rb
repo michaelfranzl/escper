@@ -30,6 +30,8 @@ module Escper
     end
     
     def codepage_lookup(char)
+      return '*'.force_encoding('ASCII-8BIT') unless @codepage_lookup_yaml[@codepage]
+      
       output = @codepage_lookup_yaml[@codepage][char]
       if output
         output = output.chr
@@ -38,5 +40,6 @@ module Escper
       end
       return output.force_encoding('ASCII-8BIT')
     end
+    
   end
 end

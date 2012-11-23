@@ -86,6 +86,7 @@ module Escper
         p = @vendor_printers[i]
         name = p.name
         path = p.path
+        codepage = p.codepage
         if @mode != 'local' and SalorHospitality::Application::SH_DEBIAN_SITEID != 'none'
           path = File.join('/', 'var', 'lib', 'salor-hospitality', SalorHospitality::Application::SH_DEBIAN_SITEID, 'public', 'uploads', "#{path}.salor")
         end
@@ -93,7 +94,7 @@ module Escper
         pid = p.id ? p.id : i
         begin
           printer = SerialPort.new path, 9600
-          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer }
+          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
           ActiveRecord::Base.logger.info "[PRINTING]    Success for SerialPort: #{ printer.inspect }"
           next
         rescue Exception => e
@@ -102,7 +103,7 @@ module Escper
 
         begin
           printer = File.open path, 'wb'
-          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer }
+          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
           ActiveRecord::Base.logger.info "[PRINTING]    Success for File: #{ printer.inspect }"
           next
         rescue Errno::EBUSY
@@ -113,7 +114,7 @@ module Escper
             ActiveRecord::Base.logger.info "[PRINTING]      Trying to reuse already opened File #{ key }: #{ val.inspect }"
             if val[:path] == p[:path] and val[:device].class == File
               ActiveRecord::Base.logger.info "[PRINTING]      Reused."
-              @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => val[:device] }
+              @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => val[:device], :codepage => codepage }
               break
             end
           end
@@ -124,7 +125,7 @@ module Escper
               path = File.join('/', 'var', 'lib', 'salor-hospitality', SalorHospitality::Application::SH_DEBIAN_SITEID)
             end
             printer = File.open(File.join(path, "#{ p.id }-#{ name }-fallback-busy.salor"), 'wb')
-            @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer }
+            @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
             ActiveRecord::Base.logger.info "[PRINTING]      Failed to open as either SerialPort or USB File and resource IS busy. This should not have happened. Created #{ printer.inspect } instead."
           end
           next
@@ -135,7 +136,7 @@ module Escper
             path = File.join('/', 'var', 'lib', 'salor-hospitality', SalorHospitality::Application::SH_DEBIAN_SITEID)
           end
           printer = File.open(File.join(path, "#{ p.id }-#{ name }-fallback-notbusy.salor"), 'wb')
-          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer }
+          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
           ActiveRecord::Base.logger.info "[PRINTING]    Failed to open as either SerialPort or USB File and resource is NOT busy. Created #{ printer.inspect } instead."
         end
       end
