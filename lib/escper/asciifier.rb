@@ -8,7 +8,7 @@ module Escper
     def self.all_chars
       out = "\e@" # Initialize Printer
       out.encode!('ASCII-8BIT')
-      20.upto(255) { |i| out += i.to_s(16) + i.chr + ' ' }
+      33.upto(255) { |i| out += i.to_s(16) + i.chr + ' ' }
       return out
     end
     
