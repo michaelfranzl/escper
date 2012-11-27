@@ -122,11 +122,17 @@ module Escper
             end
           end
           unless @open_printers.has_key? p.id
-            ActiveRecord::Base.logger.info "[PRINTING]      Failed to open as either SerialPort or USB File and resource IS busy. This should not have happened."
+            path = File.join(Rails.root, 'tmp')
+            printer = File.open(File.join(path, "#{ p.id }-#{ name }-fallback-busy.salor"), 'wb')
+            @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
+            ActiveRecord::Base.logger.info "[PRINTING]      Failed to open as either SerialPort or USB File and resource IS busy. This should not have happened. Created #{ printer.inspect } instead."
           end
           next
         rescue Exception => e
-          ActiveRecord::Base.logger.info "[PRINTING]    Failed to open as either SerialPort or USB File and resource is NOT busy."
+          path = File.join(Rails.root, 'tmp')
+          printer = File.open(File.join(path, "#{ p.id }-#{ name }-fallback-notbusy.salor"), 'wb')
+          @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
+          ActiveRecord::Base.logger.info "[PRINTING]    Failed to open as either SerialPort or USB File and resource is NOT busy. Created #{ printer.inspect } instead."
         end
       end
     end
