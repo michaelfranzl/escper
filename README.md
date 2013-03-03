@@ -1,4 +1,4 @@
-Escper (read: "escaper") -- Convert an image to ESCPOS commands for thermal receipt printers
+Escper (read: "escaper") -- Easy printing to serial thermal printers
 =======================================================================
 
 Installation
