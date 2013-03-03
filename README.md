@@ -164,7 +164,7 @@ www.red-e.eu
 Licence
 ----------------------
 
-Copyright (C) 2011-2012  Michael Franzl <michael@billgastro.com>
+Copyright (C) 2011-2013  Red (E) Tools Ltd.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
