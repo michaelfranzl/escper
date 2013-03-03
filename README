@@ -1,10 +1,13 @@
-= Escper (read: "escaper") -- Convert an image to ESCPOS commands for thermal receipt printers
+Escper (read: "escaper") -- Convert an image to ESCPOS commands for thermal receipt printers
+=======================================================================
 
-== Installation
+Installation
+------------
 
     gem install escper
     
-== Introduction
+Introduction
+------------
 
 Escper is a collection of essential tools that make printing of plain text and images to one or many serial thermal printers easy. Both USB and serial (RS232) printers are supported and detected automatically. Escper is useful for Ruby based Point of Sale systems that want to print receipts or tickets.
 
@@ -14,7 +17,8 @@ Another tricky usecase is where text is mixed with images. Images are transforme
 
 Some Point of Sale systems, especially those for restaurants, have to send tickets to several printers at the same time (e.g. kitchen, bar, etc.). Escper makes this easy. Have a look at the usage examples below.
 
-== Convert image to ESCPOS code
+Usecase: Convert image to ESCPOS code
+------------
 
 Load Escper:
 
@@ -52,7 +56,8 @@ To send an image directly to a thermal receipt printer in just one line:
 
     File.open('/dev/usb/lp0','w') { |f| f.write Escper::Img.new('/path/to/image.png').to_s }
     
-== Print UTF-8 text to several serial printers at the same time
+Usecase: Print UTF-8 text to several serial printers at the same time
+------------
 
 First, create printer objects which are simply containers for data about the printer. If you develop your application in a framework like Rails, you also can use the models from this application instead of creating them from within Escper. The only requirements are that the objects respond to the methods `id`, `name`, `path`, `copies` and `codepage`.
 
@@ -83,7 +88,8 @@ After printing is finished, don't forget to close the device nodes which were op
     print_engine.close
 
     
-== Print UTF8 text mixed with binary images
+Usecase: Print UTF8 text mixed with binary images
+------------
 
 Create a printer object:
 
@@ -117,11 +123,13 @@ After printing is done, close the device nodes again:
     print_engine.close
     
 
-== Fallback mode
+Fallback mode
+----------------------
 
 If a device node is busy or not writable, Escper will create fallback files instead and append the print data to that file. The fallback files will have the name of the printers and will be saved inside of `/tmp`, or, when you include Escper from Rails, in the `tmp` folder of the Rails app source.
 
-== Configuration
+Configuration
+----------------------
 
 You can configure Escper by calling in your project:
 
@@ -135,13 +143,26 @@ You can configure Escper by calling in your project:
 
 `use_safe_device_path` can be set to `true` when you are running Escper on a remote server and no actual writes to device nodes should occur. In this case, all print data will be stored in regular files in the path `safe_device_path` with safe file names, which can be further processed or submitted by other programs.
     
-== Additional Features
+Additional Features
+----------------------
 
 For additional features, please study the source code.
 
 
+Contact
+----------------------
 
-== Licence
+Ask for support or additional features!
+
+Red (E) Tools Ltd.
+
+office@red-e.eu
+
+www.red-e.eu
+
+
+Licence
+----------------------
 
 Copyright (C) 2011-2012  Michael Franzl <michael@billgastro.com>
 
