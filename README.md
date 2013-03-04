@@ -50,7 +50,7 @@ Alternatively, the source can be an ImageMagick canvas:
     gc.draw(canvas)
     escpos_code = Escper::Img.new(canvas,:obj).to_s
 
-For optimal visual results, when using a file or a blob, the image should previously be converted to an indexed, black and white 1-bit palette image. In Gimp, click on "Image -> Mode -> Indexed..." and select "Use black and white (1-bit) palette". For dithering, choose "Floyd-Steinberg (reduced color bleeding)". The image size depends on the resolution of the printer. The Escper gem contains a test image in `lib/escper/test.png`.
+For optimal visual results, when using a file or a blob, the image should previously be converted to an indexed, black and white 1-bit palette image. In Gimp, click on "Image -> Mode -> Indexed..." and select "Use black and white (1-bit) palette". For dithering, choose "Floyd-Steinberg (reduced color bleeding)". The image size depends on the resolution of the printer. The Escper gem contains a test image in `examples/escper.png`.
 
 To send an image directly to a thermal receipt printer in just one line:
 
