@@ -78,8 +78,8 @@ Now, open all device nodes as specified in `new`:
 Once all device nodes are openend for writing, you can print text. Text must be UTF-8 encoded. The fist parameter is the `id` of the printer object that should be printed to. The second parameter, the text, will be printed immediately:
 
     print_engine.print 1, 'print text to printer 1'
-    print_engine.print 2, 'print text to printer 1'
-    print_engine.print 3, 'print text to printer 1'
+    print_engine.print 2, 'print text to printer 2'
+    print_engine.print 3, 'print text to printer 3'
     
 The `print` method will return an array which contains the number of bytes actually written to the device node, as well as the raw text that was written to the device node.
     
