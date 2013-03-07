@@ -1,0 +1,94 @@
+--- !ruby/object:Gem::Specification
+name: escper
+version: !ruby/object:Gem::Version
+  version: 1.1.6
+  prerelease: 
+platform: ruby
+authors:
+- Red (E) Tools Ltd.
+autorequire: 
+bindir: bin
+cert_chain: []
+date: 2013-03-07 00:00:00.000000000 Z
+dependencies:
+- !ruby/object:Gem::Dependency
+  name: rmagick
+  requirement: !ruby/object:Gem::Requirement
+    none: false
+    requirements:
+    - - ! '>='
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    none: false
+    requirements:
+    - - ! '>='
+      - !ruby/object:Gem::Version
+        version: '0'
+- !ruby/object:Gem::Dependency
+  name: serialport
+  requirement: !ruby/object:Gem::Requirement
+    none: false
+    requirements:
+    - - ! '>='
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :runtime
+  prerelease: false
+  version_requirements: !ruby/object:Gem::Requirement
+    none: false
+    requirements:
+    - - ! '>='
+      - !ruby/object:Gem::Version
+        version: '0'
+description: Collection of essential tools that make printing of plain text and images
+  to one or many serial thermal printers easy. Both USB and serial (RS232) printers
+  are supported and detected automatically. Escper is useful for Ruby based Point
+  of Sale systems that want to print receipts or tickets.
+email:
+- office@red-e.eu
+executables: []
+extensions: []
+extra_rdoc_files: []
+files:
+- .gitignore
+- Gemfile
+- README.md
+- Rakefile
+- escper.gemspec
+- lib/escper.rb
+- lib/escper/asciifier.rb
+- lib/escper/codepages.yml
+- lib/escper/image.rb
+- lib/escper/log.rb
+- lib/escper/printer.rb
+- lib/escper/vendor_printer.rb
+- lib/escper/version.rb
+homepage: http://red-e.eu
+licenses: []
+post_install_message: 
+rdoc_options: []
+require_paths:
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement
+  none: false
+  requirements:
+  - - ! '>='
+    - !ruby/object:Gem::Version
+      version: '0'
+required_rubygems_version: !ruby/object:Gem::Requirement
+  none: false
+  requirements:
+  - - ! '>='
+    - !ruby/object:Gem::Version
+      version: '0'
+requirements: []
+rubyforge_project: 
+rubygems_version: 1.8.23
+signing_key: 
+specification_version: 3
+summary: Collection of essential tools that make printing of plain text and images
+  to one or many serial thermal printers easy.
+test_files: []
