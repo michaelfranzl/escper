@@ -1,8 +1,10 @@
-ruby-escper (1.1.5-1ubuntu1) precise; urgency=low
+ruby-escper (1.1.6-1) unstable; urgency=low
 
   * changed to Expat license
+  * new version 1.1.6
+  * new version 1.1.6
 
- -- Michael Franzl <office@michaelfranzl.com>  Thu, 07 Mar 2013 10:32:00 +0100
+ -- Michael Franzl <office@michaelfranzl.com>  Thu, 07 Mar 2013 10:38:07 +0100
 
 ruby-escper (1.1.5-1) UNRELEASED; urgency=low
 
