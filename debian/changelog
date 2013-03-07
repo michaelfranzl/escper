@@ -1,0 +1,5 @@
+ruby-escper (1.1.4-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #702246)
+
+ -- Michael Franzl <office@michaelfranzl.com>  Sun, 03 Mar 2013 20:25:20 +0100
