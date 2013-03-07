@@ -1,3 +1,9 @@
+ruby-escper (1.1.6-2) unstable; urgency=low
+
+  * dependencies
+
+ -- Michael Franzl <office@michaelfranzl.com>  Thu, 07 Mar 2013 13:51:50 +0100
+
 ruby-escper (1.1.6-1) unstable; urgency=low
 
   * changed to Expat license
