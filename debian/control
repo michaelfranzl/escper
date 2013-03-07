@@ -14,10 +14,6 @@ XS-Ruby-Versions: all
 Package: ruby-escper
 Architecture: all
 XB-Ruby-Versions: ${ruby:Versions}
-Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-serialport, ruby-rmagick
 Description: Easy printing to serial thermal ESCPOS printers
- Collection of methods that make printing of plain text and images
- to one or many serial thermal ESCPOS printers easy. Both USB and serial
- (RS232) printers are supported and detected automatically. Escper is
- useful for Ruby based Point of Sale systems that want to print receipts
- or tickets.
+
