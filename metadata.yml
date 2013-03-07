@@ -58,7 +58,6 @@ files:
 - README.md
 - Rakefile
 - escper.gemspec
-- examples/test.png
 - lib/escper.rb
 - lib/escper/asciifier.rb
 - lib/escper/codepages.yml
