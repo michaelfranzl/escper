@@ -13,13 +13,13 @@ module Escper
       else
         @fallback_root_path = '/'
       end
-      if vendor_printers.kind_of?(Array) or (defined?(ActiveRecord) == true and vendor_printers.kind_of?(ActiveRecord::Relation))
+      if vendor_printers.kind_of?(Array) or (defined?(ActiveRecord) == 'constant' and vendor_printers.kind_of?(ActiveRecord::Relation))
         @vendor_printers = vendor_printers
       elsif vendor_printers.kind_of? VendorPrinter
         @vendor_printers = [vendor_printers]
       else
         # If no available VendorPrinters are initialized, create a set of temporary VendorPrinters with usual device paths.
-        puts "No VendorPrinters specified. Creating a set of temporary printers with common device paths"
+        Escper.log "No VendorPrinters specified. Creating a set of temporary printers with common device paths"
         paths = ['/dev/ttyUSB0', '/dev/ttyUSB1', '/dev/ttyUSB2', '/dev/usb/lp0', '/dev/usb/lp1', '/dev/usb/lp2', '/dev/salor-hospitality-front', '/dev/salor-hospitality-top', '/dev/salor-hospitality-back-top-left', '/dev/salor-hospitality-back-top-right', '/dev/salor-hospitality-back-bottom-left', '/dev/salor-hospitality-back-bottom-right']
         @vendor_printers = Array.new
         paths.size.times do |i|
