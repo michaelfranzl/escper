@@ -1,3 +1,12 @@
+ruby-escper (1.1.7-1) unstable; urgency=low
+
+  * fix
+  * new version
+  * unfix
+  * fix, new version
+
+ -- Michael Franzl <office@michaelfranzl.com>  Tue, 12 Mar 2013 14:18:40 +0100
+
 ruby-escper (1.1.6-2) unstable; urgency=low
 
   * dependencies
