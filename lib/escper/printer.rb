@@ -15,7 +15,7 @@ module Escper
       end
       if vendor_printers.kind_of?(Array) or (defined?(ActiveRecord) == 'constant' and vendor_printers.kind_of?(ActiveRecord::Relation))
         @vendor_printers = vendor_printers
-      elsif vendor_printers.kind_of? VendorPrinter
+      elsif vendor_printers.kind_of?(VendorPrinter) or vendor_printers.kind_of?(::VendorPrinter)
         @vendor_printers = [vendor_printers]
       else
         # If no available VendorPrinters are initialized, create a set of temporary VendorPrinters with usual device paths.
