@@ -1,3 +1,10 @@
+ruby-escper (1.1.8-1) unstable; urgency=low
+
+  * fix: distinciton between VendorPrinter and ::VendorPrinter
+  * new version
+
+ -- Michael Franzl <office@michaelfranzl.com>  Wed, 13 Mar 2013 16:35:01 +0100
+
 ruby-escper (1.1.7-1) unstable; urgency=low
 
   * fix
