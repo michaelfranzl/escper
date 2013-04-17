@@ -7,6 +7,7 @@ module Escper
       @copies = attrs[:copies]
       @codepage = attrs[:codepage]
       @baudrate = attrs[:baudrate]
+      @baudrate ||= 9600
       @id = attrs[:id]
     end
     
