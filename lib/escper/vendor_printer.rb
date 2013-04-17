@@ -6,6 +6,8 @@ module Escper
       @path = attrs[:path]
       @copies = attrs[:copies]
       @codepage = attrs[:codepage]
+      @baudrate = attrs[:baudrate]
+      @baudrate ||= 9600
       @id = attrs[:id]
     end
     
@@ -39,6 +41,14 @@ module Escper
     
     def codepage=(codepage)
       @codepage = codepage
+    end
+    
+    def baudrate
+      @baudrate
+    end
+    
+    def baudrate=(baudrate)
+      @baudrate = baudrate
     end
     
     def id

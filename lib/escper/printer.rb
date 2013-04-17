@@ -95,6 +95,7 @@ module Escper
         name = p.name
         path = p.path
         codepage = p.codepage
+        baudrate = p.baudrate
 
         if Escper.use_safe_device_path == true
           sanitized_path = path.gsub(/[\/\s'"\&\^\$\#\!;\*]/,'_').gsub(/[^\w\/\.\-@]/,'')
@@ -102,10 +103,10 @@ module Escper
           @file_mode = 'ab'
         end
 
-        Escper.log "[PRINTING]  Trying to open #{ name } @ #{ path } ..."
+        Escper.log "[PRINTING]  Trying to open #{ name }@#{ path }@#{ baudrate }bps ..."
         pid = p.id ? p.id : i
         begin
-          printer = SerialPort.new path, 9600
+          printer = SerialPort.new path, baudrate
           @open_printers.merge! pid => { :name => name, :path => path, :copies => p.copies, :device => printer, :codepage => codepage }
           Escper.log "[PRINTING]    Success for SerialPort: #{ printer.inspect }"
           next
