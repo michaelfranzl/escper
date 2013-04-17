@@ -1,3 +1,13 @@
+ruby-escper (1.2.0-1) unstable; urgency=low
+
+  * added baudrate
+  * default for baudrate
+  * new version
+  * updated readme
+  * new version
+
+ -- Michael Franzl <office@michaelfranzl.com>  Wed, 17 Apr 2013 11:04:27 +0200
+
 ruby-escper (1.1.8-1) unstable; urgency=low
 
   * fix: distinciton between VendorPrinter and ::VendorPrinter
