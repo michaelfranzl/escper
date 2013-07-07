@@ -2,9 +2,9 @@ module Escper
   class Printer
     # mode can be local or sass
     # vendor_printers can either be a single VendorPrinter object, or an Array of VendorPrinter objects, or an ActiveRecord Relation containing VendorPrinter objects.
-    def initialize(mode='local', vendor_printers=nil, subdomain=nil)
+    def initialize(mode='local', vendor_printers=nil, subdirectory=nil)
       @mode = mode
-      @subdomain = subdomain
+      @subdirectory = subdirectory
       @open_printers = Hash.new
       @codepages_lookup = YAML::load(File.read(Escper.codepage_file))
       @file_mode = 'wb'
@@ -99,7 +99,8 @@ module Escper
 
         if Escper.use_safe_device_path == true
           sanitized_path = path.gsub(/[\/\s'"\&\^\$\#\!;\*]/,'_').gsub(/[^\w\/\.\-@]/,'')
-          path = File.join(Escper.safe_device_path, @subdomain, "#{sanitized_path}.bill")
+          path = File.join(Escper.safe_device_path, @subdirectory, "escpos", "#{sanitized_path}.bill")
+          FileUtils.mkdir_p(File.dirname(path)) unless File.exists?(File.dirname(path))
           @file_mode = 'ab'
         end
 
