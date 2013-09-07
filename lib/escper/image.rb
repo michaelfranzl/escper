@@ -54,15 +54,12 @@ module Escper
           temp = 0
         end
       end
-      result = bits.collect{ |b| b.chr }.join
+      result = bits.pack("C*")
+      p_cmd = "\x1D\x76\x30\x00"
+      hdr = [@x, (@y*8)].pack("SS")
       escpos = ''
       escpos.encode! 'ASCII-8BIT'
-      escpos += "\x1D\x76\x30\x00" +
-          @x.chr +
-          "\x00" +
-          (@y*8).chr +
-          "\x00" +
-          result
+      escpos += p_cmd + hdr + result
       return escpos
     end
   end
