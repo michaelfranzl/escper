@@ -1,0 +1,45 @@
+ruby-escper (1.2.0-1) unstable; urgency=low
+
+  * added baudrate
+  * default for baudrate
+  * new version
+  * updated readme
+  * new version
+
+ -- Michael Franzl <office@michaelfranzl.com>  Wed, 17 Apr 2013 11:04:27 +0200
+
+ruby-escper (1.1.8-1) unstable; urgency=low
+
+  * fix: distinciton between VendorPrinter and ::VendorPrinter
+  * new version
+
+ -- Michael Franzl <office@michaelfranzl.com>  Wed, 13 Mar 2013 16:35:01 +0100
+
+ruby-escper (1.1.7-1) unstable; urgency=low
+
+  * fix
+  * new version
+  * unfix
+  * fix, new version
+
+ -- Michael Franzl <office@michaelfranzl.com>  Tue, 12 Mar 2013 14:18:40 +0100
+
+ruby-escper (1.1.6-2) unstable; urgency=low
+
+  * dependencies
+
+ -- Michael Franzl <office@michaelfranzl.com>  Thu, 07 Mar 2013 13:51:50 +0100
+
+ruby-escper (1.1.6-1) unstable; urgency=low
+
+  * changed to Expat license
+  * new version 1.1.6
+  * new version 1.1.6
+
+ -- Michael Franzl <office@michaelfranzl.com>  Thu, 07 Mar 2013 10:38:07 +0100
+
+ruby-escper (1.1.5-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #702246)
+
+ -- Michael Franzl <office@michaelfranzl.com>  Sun, 03 Mar 2013 20:25:20 +0100
