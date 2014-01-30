@@ -3,3 +3,7 @@ pkg/*
 .bundle
 *.*~
 *~
+debian/ruby-escper
+*.log
+files
+*.substvars
