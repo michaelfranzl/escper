@@ -1,6 +1,6 @@
 require 'RMagick'
 require 'yaml'
-#require 'active_record'
+require 'timeout'
 
 dir = File.dirname(__FILE__)
 Dir[File.expand_path("#{dir}/escper/*.rb")].uniq.each do |file|

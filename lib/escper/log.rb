@@ -1,9 +1,9 @@
 module Escper
   def self.log(text)
     if defined?(ActiveRecord)
-      ActiveRecord::Base.logger.info text
+      ActiveRecord::Base.logger.info "[ESCPER] #{ text }"
     else
-      puts text
+      puts "[ESCPER] #{ text }"
     end
   end
 end
