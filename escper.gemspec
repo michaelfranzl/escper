@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Red (E) Tools Ltd."]
   s.email       = ["office@red-e.eu"]
   s.homepage    = "http://red-e.eu"
-  s.summary     = %q{Collection of essential tools that make printing of plain text and images to one or many serial thermal printers easy.}
-  s.description = %q{Collection of essential tools that make printing of plain text and images to one or many serial thermal printers easy. Both USB and serial (RS232) printers are supported and detected automatically. Escper is useful for Ruby based Point of Sale systems that want to print receipts or tickets.}
+  s.summary     = %q{Collection of tools that make printing of plain text and images to one or many serial thermal printers easy.}
+  s.description = %q{Collection of tools that make printing of plain text and images to one or many serial thermal printers easy. USB, serial (RS232) and TCP/IP printers are supported. Escper is useful for Ruby based Point of Sale systems that want to print receipts or tickets, but also suitable for stand-alone applications.}
 
   #s.rubyforge_project = "escper"
 
