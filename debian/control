@@ -1,0 +1,19 @@
+Source: ruby-escper
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Michael Franzl <office@michaelfranzl.com>
+DM-Upload-Allowed: yes
+Build-Depends: debhelper (>= 7.0.50~), gem2deb (>= 0.2.13~)
+Standards-Version: 3.9.2
+Vcs-Git: https://github.com/michaelfranzl/Escper
+Vcs-Browser: https://github.com/michaelfranzl/Escper
+Homepage: https://github.com/michaelfranzl/Escper
+XS-Ruby-Versions: all
+
+Package: ruby-escper
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ruby | ruby-interpreter, ruby-serialport, ruby-rmagick
+Description: Easy printing to serial thermal ESCPOS printers
+
