@@ -1,6 +1,17 @@
 Escper (read: "escaper") -- Easy printing to serial thermal printers
 =======================================================================
 
+Escper is a Ruby library that makes printing of plain text and images to one or several serial thermal printers easy. USB, serial (RS232) and TCP/IP based printers are supported. Escper is useful for Ruby-based Point of Sale (POS) systems that want to print receipts, tickets or labels.
+
+Project status
+--------------
+
+Escper has been used as the printing 'engine' for my Point of Sale software [Salor Hospitality](https://github.com/michaelfranzl/SalorHospitality). However, since I do no longer develop or maintain Salor Hospitality, I have no plans to develop or maintain this library any further. The [version on Rubygems.org](https://rubygems.org/gems/escper) is [upstream/1.2.2](https://github.com/michaelfranzl/ruby-escper/releases/tag/upstream%2F1.2.2) and was working reliably with Ruby 1.9.3.
+
+The source code in this repository is made available as-is, and you will need to have some Ruby skills to fix issues in your specific application.
+
+
+
 Installation
 ------------
 
@@ -9,7 +20,7 @@ Installation
 Introduction
 ------------
 
-Escper is a collection of tools that make printing of plain text and images to one or several serial thermal printers easy. USB, serial (RS232) and TCP/IP based printers are supported. Escper is useful for Ruby-based Point of Sale (POS) systems that want to print receipts, tickets or labels.
+
 
 While the actual printing is just writing a bytearray to a device node located inside of `/dev`, there is some preprocessing necessary. Thermal printers usually have a narrow and custom character set, do not support UTF-8, only ASCII-8BIT. However, Escper makes it possible to conveniently pass an UTF-8 string to the printing method, and it does all the conversion work under the hood. For special characters, Escper will map UTF-8 characters to the ASCII-8BIT codes that are actually supported by the currently enabled codepage on the printer (have a look at the user manual of your printer). The file `lib/escper/codepages.yml` is an example for matching UTF-8 codes to ASCII codes of the standard codepage of the commonly available Espon and Metapace printers.
 
@@ -144,42 +155,14 @@ You can configure Escper by calling in your project:
 
 `use_safe_device_path` can be set to `true` for security reasons when you are running Escper on a remote server and no actual writes to physical printers should occur. In this case, all print data will always be stored in regular files in the path `safe_device_path` with safe/escaped file names, which can be further processed or served by other programs.
     
-Additional Features
+
+
+
+
+License
 ----------------------
 
-For additional features, please study the source code.
-
-
-Application
-----------------------
-
-Escper is actively used in the production-quality Point of Sale products
-
-[SALOR Retail](https://github.com/jasonknight/salor-retail)
-
-and
-
-[SALOR Hospitality](https://github.com/michaelfranzl/SalorHospitality)
-
-and indirectly used by dozens of real stores daily, around the clock, around the world.
-
-
-Contact
-----------------------
-
-Ask for support or additional features!
-
-Red (E) Tools Ltd.
-
-office@thebigrede.net
-
-www.thebigrede.net
-
-
-Licence
-----------------------
-
-Copyright (C) 2011-2013  Red (E) Tools Ltd. <office@thebigrede.net>
+Copyright (C) 2011-2013  Michael Franzl
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
