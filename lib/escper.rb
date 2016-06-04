@@ -1,4 +1,4 @@
-require 'RMagick'
+require 'rmagick'
 require 'yaml'
 require 'timeout'
 
